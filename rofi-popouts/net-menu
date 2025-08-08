@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+launcher='rofi -dmenu -p Network'
+confirm() {
+  printf "Yes\nNo" | rofi -dmenu -p "$1" | grep -qi '^yes$'
+}
+
+wifi_state="$(nmcli radio wifi)"
+ssid="$(nmcli -t -f active,ssid dev wifi | awk -F: '$1=="yes"{print $2; exit}')"
+ssid="${ssid:-Down}"
+
+base="📶 Toggle Wi-Fi ($wifi_state)\n🖥  Launch nmtui\n↻ Restart NetworkManager"
+# Known saved Wi-Fi connections
+known="$(nmcli -t -f NAME,TYPE connection show | awk -F: '$2=="802-11-wireless"{print "➡  Connect: "$1}')"
+
+choice="$(printf "%b\n%s\n%s" "$base" "$known" "❌ Cancel" | eval "$launcher")" || exit 0
+
+case "$choice" in
+  "📶 Toggle Wi-Fi ("*)
+    if [[ "$wifi_state" == "enabled" ]]; then
+      confirm "Turn Wi-Fi OFF? (current: $ssid)" && nmcli radio wifi off
+    else
+      confirm "Turn Wi-Fi ON?" && nmcli radio wifi on
+    fi
+    ;;
+  "🖥  Launch nmtui")
+    # choose your terminal; kitty used as an example
+    (kitty -e nmtui &) || (alacritty -e nmtui &)
+    ;;
+  "↻ Restart NetworkManager")
+    confirm "Restart NetworkManager? (will drop connections)" && sudo systemctl restart NetworkManager
+    ;;
+  "➡  Connect:"*)
+    target="${choice#*: }"
+    confirm "Connect to \"$target\"?" && nmcli c up id "$target"
+    ;;
+  *) exit 0 ;;
+esac
+

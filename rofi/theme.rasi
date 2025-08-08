@@ -1,0 +1,72 @@
+* {
+  bg:        #1b1b1b;   
+  fg:        #404040;
+  text:      #cecece;
+  accent:    #095217;               
+
+  font:      "Fira Code 11";
+
+  background-color: @bg;
+  text-color: @text;
+}
+
+window {
+  transparency: "real";
+  border-radius: 5px;
+  border-color: @accent;
+  border: 2px;
+}
+
+mainbox { 
+    padding: 6px;
+}
+
+inputbar {
+  spacing: 8px;
+  padding: 6px 8px;
+  background-color: transparent;
+  children: [prompt, entry];
+}
+
+prompt {
+  border-radius: 8px;
+  padding: 4px 6px;
+  background-color: transparent;
+}
+
+entry {
+  placeholder: "Type to search…";
+  expand: true;
+  padding: 4px 6px;
+  border-radius: 8px;
+  background-color: @fg;
+}
+
+listview {
+  columns: 1;
+  fixed-height: 0;
+  scrollbar: true;
+  padding: 6px 0;
+}
+
+element {
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+element-icon {
+  size: 18;
+  padding: 0 6px 0 2px;
+}
+
+element-text {
+  highlight: bold underline;
+}
+
+element-text selected {
+  background-color: @fg;
+}
+
+element selected {
+  background-color: @fg;
+}

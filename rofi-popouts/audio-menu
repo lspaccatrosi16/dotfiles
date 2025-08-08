@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+launcher="rofi -dmenu -p Audio"
+choice=$(printf "🔊 Volume 10%%\n🔊 Volume 25%%\n🔊 Volume 50%%\n🔊 Volume 75%%\n🔊 Volume 100%%\n🔇 Toggle Mute\n🎤 Toggle Mic Mute\n🎚 Open pavucontrol" | $launcher)
+case "$choice" in
+  "🔊 Volume 10%")  wpctl set-volume @DEFAULT_AUDIO_SINK@ 10% ;;
+  "🔊 Volume 25%")  wpctl set-volume @DEFAULT_AUDIO_SINK@ 25% ;;
+  "🔊 Volume 50%")  wpctl set-volume @DEFAULT_AUDIO_SINK@ 50% ;;
+  "🔊 Volume 75%")  wpctl set-volume @DEFAULT_AUDIO_SINK@ 75% ;;
+  "🔊 Volume 100%") wpctl set-volume @DEFAULT_AUDIO_SINK@ 100% ;;
+  "🔇 Toggle Mute") wpctl set-mute   @DEFAULT_AUDIO_SINK@ toggle ;;
+  "🎤 Toggle Mic Mute") wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle ;;
+  "🎚 Open pavucontrol") pavucontrol & ;;
+esac
+

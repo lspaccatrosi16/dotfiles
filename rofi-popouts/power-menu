@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+launcher='rofi -dmenu -p Power'
+confirm() {
+  printf "Yes\nNo" | rofi -dmenu -p "$1" | grep -qi '^yes$'
+}
+
+choice="$(printf "🚪 Logout (Hyprland)\n⏾ Suspend\n Reboot\n⏻ Power off\n❌ Cancel" | eval "$launcher")" || exit 0
+
+case "$choice" in
+  "⏻ Power off")
+    confirm "Power off?" && systemctl poweroff
+    ;;
+  " Reboot")
+    confirm "Reboot?" && systemctl reboot
+    ;;
+  "🔒 Lock")
+    confirm "Lock?" && hyprlock &
+    ;;
+  "🚪 Logout (Hyprland)")
+    confirm "Exit Hyprland?" && hyprctl dispatch exit
+    ;;
+  *) exit 0 ;;
+esac
+

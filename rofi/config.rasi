@@ -1,0 +1,16 @@
+configuration {
+  modi: "drun,run,ssh";
+  show-icons: true;
+  icon-theme: "Papirus";           // pick what you have installed
+  font: "JetBrains Mono 11";       // any Pango font name + size
+
+  display-drun: "Apps";
+  display-run: "Run";
+  display-ssh: "SSH";
+  drun-display-format: "{name}";
+  kb-accept-entry: "Return,KP_Enter";
+  kb-remove-char-back: "BackSpace";
+}
+
+@theme "~/.config/rofi/theme.rasi"
+

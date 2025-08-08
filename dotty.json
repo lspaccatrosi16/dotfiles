@@ -1,0 +1,20 @@
+[
+    {
+        "name": "shell",
+        "configs": {
+            "nvim": "~/.config/nvim",
+            "starship.toml": "~/.config/starship.toml",
+            "alacritty": "~/.config/alacritty",
+            ".gitconfig": "~/.gitconfig"
+        }
+    },
+    {
+        "name": "desktop",
+        "configs": {
+            "hypr": "~/.config/hypr",
+            "quickshell": "~/.config/quickshell",
+            "rofi": "~/.config/rofi",
+            "rofi-popouts": "~/.config/rofi-popouts"
+        }
+    }
+]
