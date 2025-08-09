@@ -24,6 +24,7 @@ Scope {
 
                 HyprConfig.updateProperty("general:border_size", 0);
                 HyprConfig.updateProperty("general:gaps_out", 0);
+                HyprConfig.updateProperty("decoration:rounding", 0);
             } else {
                 root.isFullscreen = false;
 
@@ -31,6 +32,7 @@ Scope {
 
                 HyprConfig.setDefaultProperty("general:border_size");
                 HyprConfig.setDefaultProperty("general:gaps_out");
+                HyprConfig.setDefaultProperty("decoration:rounding");
             }
         }
     }

@@ -17,6 +17,7 @@ Rectangle {
         color: Theme.textColour
         font.family: "Fira Code"
         font.pointSize: 10
+        }
 
         Process {
             id: batProc
@@ -26,9 +27,14 @@ Rectangle {
                 onStreamFinished: {
                     const initial = this.text;
                     const spl = initial.split(" ");
-                    batLab.text = "bat: " + spl[3];
+                    batLab.text = "bat: " + spl[3].split("%")[0] + "%"
                 }
             }
         }
+    Timer {
+        interval: 1000 * 15
+        running: true
+        repeat: true
+        onTriggered: batProc.running = true
     }
 }
