@@ -1,7 +1,12 @@
-import "modules/bar"
+import "modules/display"
+import qs.services
 import Quickshell
+import QtQuick
 
 ShellRoot {
-    Bar {}
-}
+    Display {}
 
+    Component.onCompleted: {
+        HyprConfig.init()
+    }
+}

@@ -8,6 +8,8 @@ import QtQuick.Layouts
 import "../../theme/colours.js" as Theme
 
 Scope {
+    property bool isVisible: true
+
     PanelWindow {
         id: root
 
@@ -19,10 +21,11 @@ Scope {
         color: "#00000000"
         height: 30
         exclusiveZone: root.height   // keep windows from overlapping the bar
+        visible: isVisible
 
         Rectangle {
             color: Theme.backgroundColour
-            implicitWidth: Screen.width / 2
+            width: Screen.width / 2
             height: 30
             radius: 15
             anchors.centerIn: parent
@@ -35,20 +38,28 @@ Scope {
                 anchors.margins: 6
                 spacing: 10
 
-
                 Workspaces {}
                 Clock {}
-                
+
                 Item {
                     Layout.fillWidth: true
                 }
 
+                Tray {}
                 Bat {}
                 Audio {}
-                Power {}
                 Net {}
-                Tray {}
+                Power {}
             }
         }
     }
+
+    function hide() {
+        isVisible = false
+    }
+
+    function show() {
+        isVisible = true
+    }
+
 }
