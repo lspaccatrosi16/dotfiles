@@ -2,6 +2,7 @@ pragma Singleton
 
 import QtQuick
 import Quickshell
+import "../theme/colours.js" as Colours
 
 QtObject {
     id: root
@@ -10,8 +11,8 @@ QtObject {
             "general:border_size": 2,
             "general:gaps_in": 5,
             "general:gaps_out": 10,
-            "general:col.active_border": "rgb(095217)",
-            "general:col.inactive_border": "rgb(505050)",
+            "general:col.active_border": "rgb(" + Colours.accentColour.substring(1)+ ")",
+            "general:col.inactive_border": "rgb(" + Colours.middleColour.substring(1)+ ")",
             "decoration:rounding": 5,
             "decoration:roundingPower": 1,
             "decoration:active_opacity": 0.9,

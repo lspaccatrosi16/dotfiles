@@ -5,11 +5,9 @@ import "../../theme/colours.js" as Theme
 
 Rectangle {
     id: batWid
-    color: Theme.middleColour
-    Layout.alignment: Qt.AlignTop
+    color: "transparent"
     height: 18
-    radius: 9
-    width: 90
+    width: 80
 
     Text {
         id: batLab

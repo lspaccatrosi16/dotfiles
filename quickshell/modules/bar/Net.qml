@@ -5,11 +5,9 @@ import "../../theme/colours.js" as Theme
 
 Rectangle {
     id: netWid
-    color: Theme.middleColour
-    Layout.alignment: Qt.AlignTop
+    color: "transparent"
     height: 18
-    radius: 9
-    width: 30
+    width: 20
 
     property string currentSsid: ""
 
@@ -30,6 +28,6 @@ Rectangle {
         }
         hoverEnabled: true
         onEntered: parent.color = Theme.accentColour
-        onExited: parent.color = Theme.middleColour
+        onExited: parent.color = "transparent"
     }
 }

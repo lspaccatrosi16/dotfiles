@@ -6,11 +6,9 @@ import "../../theme/colours.js" as Theme
 
 Rectangle {
     id: volWid
-    color: Theme.middleColour
-    Layout.alignment: Qt.AlignTop
+    color: "transparent"
     height: 18
-    radius: 9
-    width: 90
+    width: 70
 
     PwObjectTracker {
         id: linkTracker
@@ -40,6 +38,6 @@ Rectangle {
         }
         hoverEnabled: true
         onEntered: parent.color = Theme.accentColour
-        onExited: parent.color = Theme.middleColour
+        onExited: parent.color = "transparent"
     }
 }

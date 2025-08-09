@@ -45,21 +45,17 @@ Scope {
                     Layout.fillWidth: true
                 }
 
-                Tray {}
-                Bat {}
-                Audio {}
-                Net {}
-                Power {}
+                ControlCentre {}
+
             }
         }
     }
 
     function hide() {
-        isVisible = false
+        isVisible = false;
     }
 
     function show() {
-        isVisible = true
+        isVisible = true;
     }
-
 }
