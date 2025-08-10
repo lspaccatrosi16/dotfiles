@@ -6,7 +6,7 @@ set -euo pipefail
 printf "Package manager: " 
 read pm
 
-pkgs=(git neovim fastfetch ripgrep fzf tmux zsh hyprland hyprland-devel rofi-wayland quickshell greetd tuigreet hyprpaper cliphist alacritty nautilus fira-code-fonts btop gnome-keyring acpi pipewire pavucontrol)
+pkgs=(git neovim fastfetch ripgrep fzf tmux zsh hyprland hyprland-devel rofi-wayland quickshell greetd tuigreet hyprpaper cliphist alacritty nautilus fira-code-fonts btop gnome-keyring acpi pipewire pavucontrol lxqt-policykit)
 
 case "$pm" in
   zypper) 
