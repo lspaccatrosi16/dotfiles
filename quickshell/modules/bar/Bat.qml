@@ -23,9 +23,10 @@ Rectangle {
             running: true
             stdout: StdioCollector {
                 onStreamFinished: {
-                    const initial = this.text;
-                    const spl = initial.split(" ");
-                    batLab.text = "bat: " + spl[3].split("%")[0] + "%"
+                    const found = /[0-9][0-9]+%/.exec(this.text);
+    
+                    // batLab.text = "bat: " + spl[3].split("%")[0] + "%"
+                    batLab.text = "bat: " + found[0]
                 }
             }
         }

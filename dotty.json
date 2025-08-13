@@ -14,7 +14,8 @@
             "hypr": "~/.config/hypr",
             "quickshell": "~/.config/quickshell",
             "rofi": "~/.config/rofi",
-            "rofi-popouts": "~/.config/rofi-popouts"
+            "rofi-popouts": "~/.config/rofi-popouts",
+            ".zprofile": "~/.zprofile"
         }
     }
 ]
