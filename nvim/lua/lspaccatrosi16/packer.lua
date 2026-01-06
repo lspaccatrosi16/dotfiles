@@ -3,7 +3,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate', tag = '0.10.0' })
     use 'nvim-treesitter/playground'
     use 'theprimeagen/harpoon'
     use 'mbbill/undotree'
@@ -41,5 +41,4 @@ return require('packer').startup(function(use)
         'Wansmer/treesj',
         requires = { 'nvim-treesitter/nvim-treesitter' }
     }
-
 end)
